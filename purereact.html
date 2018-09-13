@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Pure React Sample</title>
+</head>
+<body>
+	<!-- Target container -->
+	<div id="react-container"></div>
+
+	<!-- React library & ReactDOM -->
+	<script src="https://unpkg.com/react@15.4.2/dist/react.js"></script>
+	<script src="https://unpkg.com/react-dom@15.4.2/dist/react-dom.js"></script>
+
+	<script>
+		// Pure React and JavaScript code
+		var items = ["1 lb Salmon","1 cup Pine Nuts","2 cups Butter Lettuce","1 Yellow Squash","1/2 cup Olive Oil","3 cloves of Garlic"];
+		var recipe = React.createElement("section", {id:"baked-salmon"}, 
+			React.createElement("h1", null, "Bake Salmon"),
+			React.createElement("ul", {"className":"ingredients"},
+				items.map((ingredient,i) => React.createElement("li", {key:i}, ingredient+" : "+i))
+			),
+			React.createElement("section", {"className":"instructions"},
+				React.createElement("h2", null, "Cooking Instructions"),
+				React.createElement("p", null, "Preheat the oven to 350 degrees"),
+				React.createElement("p", null, "Spread the olive oil around a glass baking dish"),
+				React.createElement("p", null, "Add the salmon, garlic and pine nuts to the dish"),
+				React.createElement("p", null, "Bake for 15 minutes"),
+				React.createElement("p", null, "Add the yellow squash and put back in the oven for 30 mins"),
+				React.createElement("p", null, "Remove from oven and rest for 15 minutes"),
+				React.createElement("p", null, "Add the lettuce and serve")
+			)
+		);
+
+		ReactDOM.render(recipe, document.getElementById("react-container"));
+
+		console.log(recipe);
+
+
+	</script>
+</body>
+</html>
